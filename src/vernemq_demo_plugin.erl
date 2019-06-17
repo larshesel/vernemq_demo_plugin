@@ -1,3 +1,4 @@
+
 -module(vernemq_demo_plugin).
 
 -behaviour(auth_on_register_hook).
@@ -7,6 +8,10 @@
 -export([auth_on_register/5,
          auth_on_publish/6,
          auth_on_subscribe/3]).
+-export([apply_config/1]).
+
+apply_config(NewConfig) ->
+    error_logger:info_msg("apply_config: ~p", [NewConfig]).
 
 %% This file demonstrates the hooks you typically want to use
 %% if your plugin deals with Authentication or Authorization.
